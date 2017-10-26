@@ -68,7 +68,7 @@ def bet_():
     bet_amount = raw_input("what would you like to bet?")
     return int(bet_amount)
 
-def innit_deck():
+def init_deck():
     deck = make_hashtable(4)
     hashtable_add(deck,'K_S', 10)
     hashtable_add(deck,'Q_S', 10)
@@ -124,11 +124,11 @@ def innit_deck():
     hashtable_add(deck,'A_C', 11)
     return deck
 
-def innit_deck_pull():
+def init_deck_pull():
     deck_pull = ['A_S', '2_S', '3_S', '4_S', '5_S', '6_S', '7_S', '8_S', '9_S', '10_S', 'J_S', 'Q_S', 'K_S','A_C', '2_C', '3_C', '4_C', '5_C', '6_C', '7_C', '8_C', '9_C', '10_C', 'J_C', 'Q_C', 'K_C', 'A_H', '2_H', '3_H', '4_H', '5_H', '6_H', '7_H', '8_H', '9_H', '10_H', 'J_H', 'Q_H', 'K_H', 'A_D', '2_D', '3_D', '4_D', '5_D', '6_D', '7_D', '8_D', '9_D', '10_D', 'J_D', 'Q_D', 'K_D']
     return deck_pull
 
-def innit_player():
+def init_player():
     p_1 = raw_input('what is your name?')
     player = Player(name = p_1, bankroll = 500.0)
     return player
@@ -187,11 +187,11 @@ def winning(player_val,dealer_val,player,bets):
     if dealer_val == player_val:
         player.win(bets)
 
-def innit_blackjack():
-    #game Innit
-    deck = innit_deck() #deck key value set
-    deck_pull = innit_deck_pull() #deck from which cards will be drawn
-    player = innit_player() #player created by player object class
+def init_blackjack():
+    #game Init
+    deck = init_deck() #deck key value set
+    deck_pull = init_deck_pull() #deck from which cards will be drawn
+    player = init_player() #player created by player object class
 
     #game Greeting
     print str(greeting) + ' ' + str(player.name) + ", your bankroll is:", "$"+ str(player.bankroll) + " , GOOD LUCK!!"
@@ -229,7 +229,7 @@ def innit_blackjack():
         print win_check(player_h_val, dealer_h_val)
         winning(player_h_val,dealer_h_val,player, bets)
         if player.bankroll <= 0:
-            print "Sorry," + str(player.name) + "you are flat BROKE!!"
+            print "\n Sorry " + str(player.name) + " you are flat BROKE!!" + '\n \n Game Over!'
             break
 
-innit_blackjack()
+init_blackjack()
